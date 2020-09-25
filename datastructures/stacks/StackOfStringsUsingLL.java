@@ -1,9 +1,9 @@
-class StackOfStringsUsingLL{
+class StackOfStringsUsingLL<T>{
 
-private Node first;
+private Node<T> first;
 
-private class Node {
-    String data;
+private class Node<T> {
+    T data;
     Node next;
 }
 
@@ -15,7 +15,7 @@ public boolean isEmpty(){
     return this.first == null;
 }
 
-public void push(String data) {
+public void push(T data) {
     Node newNode = new Node();
     newNode.data = data;
     
@@ -27,12 +27,12 @@ public void push(String data) {
     }
 }
 
-public String pop() {
+public T pop() {
     if (first == null) {
         return null;
     } 
     
-    String data = first.data;
+    T data = first.data;
     first = first.next;
     return data;
 }
@@ -40,7 +40,7 @@ public String pop() {
 
 public class Client{
     public static void main(String[] args) {
-        StackOfStringsUsingLL ll = new StackOfStringsUsingLL();
+        StackOfStringsUsingLL ll = new StackOfStringsUsingLL<String>();
         ll.push("First");
         ll.push("Second");
         ll.push("Third");
